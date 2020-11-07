@@ -57,6 +57,10 @@ async function getCommitees(organization, name, m) {
 	return commitee_list;			
 }
 
+app.get('/healthCheck', function(req, res) {
+	res.json({status : true});
+});
+
 app.post('/', jsonParser, async function(req, res) {
 	try {
 		var organization = req.body.organization;
@@ -102,3 +106,5 @@ var server = app.listen(process.env.PORT || 8081, function () {
    var port = server.address().port
    console.log("Example app listening at http://%s:%s", host, port)
 });
+
+
